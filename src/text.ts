@@ -7,7 +7,7 @@ export function createText(opts: {
 	size: number;
 	color?: number;
 }): { name: string; displayObject: PIXI.DisplayObject; width: number; height: number } {
-	const resolustion = opts.size > 30 ? 1 : 2;
+	const resolustion = opts.size >= 20 ? 1 : 2;
 	const border = opts.size / 8;
 	const style = new PIXI.TextStyle({
 		fontFamily: "mplusP",

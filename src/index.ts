@@ -109,6 +109,16 @@ app.loader.load((_, res) => {
 		text: "タップ / クリック でスタート",
 		size: 30,
 	}));
+	render(app, createText({
+		name: "inst1",
+		text: "あなたの周りにいるリスナーを「囲って」常連客にしよう",
+		size: 20
+	}));
+	render(app, createText({
+		name: "inst2",
+		text: "（広範囲に囲うと成功率が落ちます）",
+		size: 20
+	}));
 	render(app, createBitmapFont({
 		name: "score",
 		chars: "残り常連: 0123456789人秒",
