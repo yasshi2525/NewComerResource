@@ -2,6 +2,7 @@ import "./app.css";
 import * as PIXI from "pixi.js";
 import { createText } from "./text";
 import { createBordered } from "./border";
+import createBitmapFont from "./bitmap_font";
 
 function creteDownloadDiv(app: PIXI.Application, name: string): HTMLDivElement {
 	const div = document.createElement("div");
@@ -107,5 +108,11 @@ app.loader.load((_, res) => {
 		name: "title_inst3",
 		text: "タップ / クリック でスタート",
 		size: 30,
+	}));
+	render(app, createBitmapFont({
+		name: "score",
+		chars: "残り常連: 0123456789人秒",
+		color: 0x000000,
+		size: 30
 	}));
 });
