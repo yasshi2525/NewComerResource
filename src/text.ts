@@ -6,6 +6,7 @@ export function createText(opts: {
 	text: string;
 	size: number;
 	color?: number;
+	borderColor?: number;
 }): { name: string; displayObject: PIXI.DisplayObject; width: number; height: number } {
 	const resolution = 1.5;
 	const border = opts.size / 8;
@@ -19,7 +20,7 @@ export function createText(opts: {
 	txt.localTransform
 		.scale(1 / resolution, 1 / resolution)
 		.translate(border, border);
-	const f = new OutlineFilter(border, 0xffffff, 1);
+	const f = new OutlineFilter(border, opts.borderColor ?? 0xffffff, 1);
 	f.padding = border;
 	txt.filters = [f];
 

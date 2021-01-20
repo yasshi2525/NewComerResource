@@ -1,6 +1,6 @@
 import "./app.css";
 import * as PIXI from "pixi.js";
-import { createText, createBlightText } from "./text";
+import { createText } from "./text";
 import { createBordered } from "./border";
 import createBitmapFont from "./bitmap_font";
 import { createPanel } from "./panel";
@@ -61,7 +61,9 @@ const app = new PIXI.Application({
 	"customer",
 	"customer_success",
 	"customer_fail",
-	"advertise_icon"
+	"advertise_icon",
+	"ranking",
+	"retry"
 ].forEach(key => app.loader.add(key, `img/${key}.png`));
 
 app.loader.load((_, res) => {
@@ -196,4 +198,73 @@ app.loader.load((_, res) => {
 		color: 0xff7f50,
 		size: 25
 	}));
+	render(app, createText({
+		name: "effect_tier1",
+		text: "薄味放送!",
+		color: 0x228b22,
+		size: 50
+	}));
+	render(app, createText({
+		name: "effect_tier3",
+		text: "濃厚放送!",
+		color: 0x228b22,
+		size: 50
+	}));
+	render(app, createText({
+		name: "ending",
+		text: "終了!",
+		color: 0x000000,
+		size: 50
+	}));
+	render(app, createPanel({
+		name: "ranking",
+		label: "ランキング",
+		labelSize: 24,
+		details: "　　　位でした",
+		detailsSize: 17,
+		bgColor: 0x6495ed,
+		width: 200,
+		height: 100,
+		icon: res.ranking.texture,
+		iconBorder: 2,
+		iconScale: 0.175,
+		labelColor: 0x000000
+	}));
+	render(app, createPanel({
+		name: "retry",
+		label: "再挑戦",
+		labelSize: 30,
+		details: "もう1回遊ぶ",
+		detailsSize: 17,
+		bgColor: 0x6495ed,
+		width: 200,
+		height: 100,
+		icon: res.retry.texture,
+		iconBorder: 2,
+		iconScale: 0.175,
+		labelColor: 0x000000
+	}));
+	[
+		"きｔらああああああああああああああ",
+		"888888888888888888888",
+		"888888888",
+		"うおぉぉぉぉぉ！！！！！！１１１",
+		"ｷﾀ―――(ﾟ∀ﾟ)―――― !!",
+		"宴の時間じゃああああああ",
+		"大物だぁぁああああ！！！１１",
+		"よっしゃああぁ",
+		"ｋｔｋｒ！",
+		"盛り上がってまいりました",
+		"※本物です",
+		"ネ申回",
+		"これは歴史に残る"
+	].forEach((txt, i) => {
+		render(app, createText({
+			name: `festival${i+1}`,
+			text: txt,
+			color: 0xffffff,
+			borderColor: 0x000000,
+			size: 35
+		}));
+	});
 });

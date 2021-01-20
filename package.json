@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/yasshi2525/NewComerResource#readme",
   "devDependencies": {
+    "@akashic/complete-audio": "^0.2.5",
     "@typescript-eslint/eslint-plugin": "^4.13.0",
     "@typescript-eslint/parser": "^4.13.0",
     "copy-webpack-plugin": "^7.0.0",
