@@ -4,6 +4,11 @@
 }
 
 @font-face {
+  font-family: "mplusP-bold";
+  src: url("/font/rounded-mplus-1p-heavy.ttf");
+}
+
+@font-face {
   font-family: "mplus";
   src: url("/font/rounded-mplus-1m-bold.ttf");
 }
