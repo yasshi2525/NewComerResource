@@ -1,6 +1,6 @@
 import "./app.css";
 import * as PIXI from "pixi.js";
-import { createText } from "./text";
+import { createBlightText, createText } from "./text";
 import { createBordered } from "./border";
 import createBitmapFont from "./bitmap_font";
 import { createPanel } from "./panel";
@@ -170,6 +170,11 @@ app.loader.load((_, res) => {
 		text: "タップ / クリック でスタート",
 		size: 30,
 	}));
+	render(app, createBlightText({
+		name: "start_countdown",
+		text: "開始まで",
+		size: 20,
+	}));
 	render(app, createText({
 		name: "inst1",
 		text: "あなたの周りにいるリスナーを「囲って」常連客にしよう",
@@ -201,14 +206,32 @@ app.loader.load((_, res) => {
 	render(app, createText({
 		name: "effect_tier1",
 		text: "薄味放送!",
-		color: 0x228b22,
+		color: 0x87ceeb,
 		size: 50
 	}));
 	render(app, createText({
 		name: "effect_tier3",
 		text: "濃厚放送!",
-		color: 0x228b22,
+		color: 0x000080,
 		size: 50
+	}));
+	render(app, createText({
+		name: "effect_details_tier1",
+		text: "囲い成功率: 低",
+		color: 0x87ceeb,
+		size: 30
+	}));
+	render(app, createText({
+		name: "effect_details_tier2",
+		text: "囲い成功率: 中",
+		color: 0x1e90ff,
+		size: 30
+	}));
+	render(app, createText({
+		name: "effect_details_tier3",
+		text: "囲い成功率: 高",
+		color: 0x000080,
+		size: 30
 	}));
 	render(app, createText({
 		name: "ending",
