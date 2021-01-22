@@ -4,6 +4,7 @@ import { createBlightText, createText } from "./text";
 import { createBordered } from "./border";
 import createBitmapFont from "./bitmap_font";
 import { createPanel } from "./panel";
+import { createThanks } from "./thanks";
 
 function creteDownloadDiv(app: PIXI.Application, name: string): HTMLDivElement {
 	const div = document.createElement("div");
@@ -216,6 +217,12 @@ app.loader.load((_, res) => {
 		size: 50
 	}));
 	render(app, createText({
+		name: "effect_allfail",
+		text: "囲い失敗!",
+		color: 0xff7f50,
+		size: 50
+	}));
+	render(app, createText({
 		name: "effect_details_tier1",
 		text: "囲い成功率: 低",
 		color: 0x87ceeb,
@@ -231,6 +238,12 @@ app.loader.load((_, res) => {
 		name: "effect_details_tier3",
 		text: "囲い成功率: 高",
 		color: 0x000080,
+		size: 30
+	}));
+	render(app, createText({
+		name: "effect_allfail_details",
+		text: "運悪く誰も囲えませんでした...",
+		color: 0xff7f50,
 		size: 30
 	}));
 	render(app, createText({
@@ -290,4 +303,9 @@ app.loader.load((_, res) => {
 			size: 35
 		}));
 	});
+	render(app, createThanks({
+		name: "thanks",
+		customer: res.customer.texture,
+		cast: res.cast.texture
+	}));
 });
