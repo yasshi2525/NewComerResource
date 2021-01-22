@@ -5,6 +5,7 @@ import { createBordered } from "./border";
 import createBitmapFont from "./bitmap_font";
 import { createPanel } from "./panel";
 import { createThanks } from "./thanks";
+import { createGuide } from "./guide";
 
 function creteDownloadDiv(app: PIXI.Application, name: string): HTMLDivElement {
 	const div = document.createElement("div");
@@ -64,10 +65,24 @@ const app = new PIXI.Application({
 	"customer_fail",
 	"advertise_icon",
 	"ranking",
-	"retry"
+	"retry",
+	"guide_advertise",
+	"guide_collabo"
 ].forEach(key => app.loader.add(key, `img/${key}.png`));
 
 app.loader.load((_, res) => {
+	render(app, createGuide({
+		name: "guide_advertise",
+		txt: "広告すると\nリスナーが増えるよ！",
+		background: res.guide_advertise.texture,
+	}));
+
+	render(app, createGuide({
+		name: "guide_collabo",
+		txt: "コラボすると\nリスナーが集まるよ！",
+		background: res.guide_collabo.texture,
+	}));
+
 	[
 		{ suffix: "enabled", bgColor: 0x98fb98, txtColor: 0x000000 },
 		{ suffix: "disabled", bgColor: 0x808080, txtColor: 0x808080 }
